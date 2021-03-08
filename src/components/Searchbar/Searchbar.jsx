@@ -1,15 +1,19 @@
-<header className="Searchbar">
-  <form className="SearchForm">
-    <button type="submit" className="SearchForm-button">
-      <span className="SearchForm-button-label">Search</span>
+import s from '../Searchbar/Searchbar.module'
+
+const searchbar = () =>{return(<header className={s.Searchbar}>
+  <form className={s.SearchForm}>
+    <button type="submit" className={s.SearchForm - button}>
+      <span className={s.SearchForm - button - label}>Search</span>
     </button>
 
     <input
-      className="SearchForm-input"
+      className={s.SearchForm - input}
       type="text"
       autocomplete="off"
       autofocus
       placeholder="Search images and photos"
     />
   </form>
-</header>
+</header>)}
+
+export default searchbar
