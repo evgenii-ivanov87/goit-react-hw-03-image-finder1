@@ -1,9 +1,24 @@
-import s from '../ImageGalleryItem/ImageGalleryItem.module'
+import React from 'react';
+import s from './ImageGalleryItem.module.css';
 
 
-const ImageGalleryItem = ({url,tittel}) => {
-    <li className={s.ImageGalleryItem}>
-        <img src={url} alt={tittel} className={s.ImageGalleryItem-image} />
-</li>}
-
+const ImageGalleryItem = ({ items }) => {
+        
+    return (
+        <>
+            {items.map((item) => (<li className={s.ImageGalleryItem} key={item.id}>
+            <img className={s.ImageGalleryItemIimage} src={item.largeImageURL} alt={item.tage} />
+            </li>))}
+        </>    
+    )
+    
+        
+                       
+                
+                    
+        
+    
+    
+    
+}
 export default ImageGalleryItem

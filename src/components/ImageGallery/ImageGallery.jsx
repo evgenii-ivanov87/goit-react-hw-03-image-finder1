@@ -1,9 +1,15 @@
-import s from '/ImageGallery/ImageGallery.module.css'
+import React from 'react'
+// import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem'
+import s from './ImageGallery.module.css'
 
-const ImageGallery = ({Children}) => {
-    return (<ul className={s.ImageGallery}>
-        {Children}
-</ul>)
+const ImageGallery = ({children}) => {
+    
+    return (
+     
+         <ul className={s.ImageGallery}>            
+           {children}
+       </ul>
+    );
 }
 
 export default ImageGallery
