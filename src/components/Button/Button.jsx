@@ -1,4 +1,4 @@
-import React, {Componet} from 'react'
+import React, {Component} from 'react'
 import s from './Button.module.css'
 
 window.scrollTo({
@@ -7,18 +7,20 @@ window.scrollTo({
 });
 
 
-class Button extends Componet {
+class Button extends Component {
   
-  // handelSearch = () => {
-  // this.props.onInceremment()
-  // }
+  handelSearch = () => {
+  this.props.onClick()
+  }
   render() {
-    return (
+   
+      return (
     <div className = { s.ButtonWrapper } >
-      <button type="button" onClick={this.props.fetchPhoto} className={s.Button}>Load more...</button>
+      <button type="button" onClick={this.handelSearch} className={s.Button}>Load more...</button>
       </div>
         
     )}
+    
   
 }
 
