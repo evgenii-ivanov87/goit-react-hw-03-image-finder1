@@ -5,6 +5,7 @@ import ImageGallery from './components/ImageGallery/ImageGallery'
 import ImageGalleryItem from './components/ImageGalleryItem/ImageGalleryItem'
 import Button from './components/Button/Button'
 import LoaderNew from './components/Loader/Loader'
+import Modal from './components/Modal/Modal'
 
 
 
@@ -15,6 +16,8 @@ class App extends Component {
     currentPage: 1,
     search: '',
     isLoading: false,
+    currentImg: '',
+    isOpen: false
   }
 
   componentDidUpdate(prevProps,prevState) {
@@ -28,7 +31,19 @@ class App extends Component {
         
   }
   
+  onChangeItem = item => {
+    this.setState({ currentImg: item, })
+    this.toggelModal()
+
+    
+        
+  }
+
+  toggelModal = () => {
+    this.setState(({ isOpen }) => ({isOpen: !isOpen, }))
+  } 
   
+ 
   fetchPhoto = () => {
     const { currentPage, search } = this.state;
     this.setState({isLoading: true})
@@ -50,10 +65,11 @@ class App extends Component {
         
         <Searchbar onSubmit={this.onChangeQuery} />                 
         <ImageGallery>
-        <ImageGalleryItem items={this.state.photos}/>
+          <ImageGalleryItem items={this.state.photos} onClick={this.onChangeItem}/>
         </ImageGallery>
         {this.state.photos.length>0 && !this.state.isLoading && (<Button onClick={this.fetchPhoto} photo={this.state.photos}/>) }
-        {this.state.isLoading && <LoaderNew />  }
+        {this.state.isLoading && <LoaderNew />}
+        {this.state.isOpen && <Modal url={this.state.currentImg} onClose={ this.toggelModal}/>}
        </>   
       
     
